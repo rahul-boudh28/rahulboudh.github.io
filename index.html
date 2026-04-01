@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rahul Boudh | Software Developer & CEH</title>
+    
+    <!-- Google Fonts: Inter (Dev Mode) & Fira Code (Hacker Mode) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace'],
+                    },
+                    colors: {
+                        // Software Developer Mode Colors
+                        devBg: '#F8FAFC',
+                        devText: '#0F172A',
+                        devPrimary: '#2563EB',
+                        devCard: '#FFFFFF',
+                        // Ethical Hacker Mode Colors
+                        hackBg: '#050505',
+                        hackText: '#E2E8F0',
+                        hackPrimary: '#00FF41', // Matrix Green
+                        hackCard: '#0A0A0A',
+                        hackBorder: '#1A1A1A'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom glowing text for hacker mode */
+        .dark .neon-text {
+            text-shadow: 0 0 8px rgba(0, 255, 65, 0.6);
+        }
+        .dark .neon-border:hover {
+            box-shadow: 0 0 15px rgba(0, 255, 65, 0.3);
+            border-color: #00FF41;
+        }
+        /* Smooth transitions */
+        body { transition: background-color 0.5s ease, color 0.5s ease; }
+        .card-transition { transition: all 0.3s ease; }
+    </style>
+</head>
+
+<body class="bg-devBg text-devText font-sans dark:bg-hackBg dark:text-hackText dark:font-mono antialiased selection:bg-devPrimary selection:text-white dark:selection:bg-hackPrimary dark:selection:text-black">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full top-0 z-50 backdrop-blur-md bg-white/70 dark:bg-black/70 border-b border-gray-200 dark:border-hackBorder transition-colors duration-500">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0 font-bold text-xl tracking-tighter">
+                    <span class="block dark:hidden text-devPrimary">&lt;RahulBoudh /&gt;</span>
+                    <span class="hidden dark:block text-hackPrimary neon-text">root@rahul:~$</span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-center space-x-8 text-sm font-medium">
+                        <a href="#about" class="hover:text-devPrimary dark:hover:text-hackPrimary transition-colors">About</a>
+                        <a href="#experience" class="hover:text-devPrimary dark:hover:text-hackPrimary transition-colors">Experience</a>
+                        <a href="#projects" class="hover:text-devPrimary dark:hover:text-hackPrimary transition-colors">Projects</a>
+                        <a href="#skills" class="hover:text-devPrimary dark:hover:text-hackPrimary transition-colors">Skills</a>
+                    </div>
+                </div>
+
+                <!-- Theme Toggle Button -->
+                <button id="themeToggle" class="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold transition-all duration-300 bg-blue-100 text-devPrimary border border-blue-200 hover:bg-blue-200 dark:bg-hackPrimary/10 dark:text-hackPrimary dark:border-hackPrimary/50 dark:hover:bg-hackPrimary/20 dark:neon-border">
+                    <i class="ph ph-code text-lg block dark:hidden"></i>
+                    <span class="block dark:hidden">Dev Mode</span>
+                    
+                    <i class="ph ph-terminal text-lg hidden dark:block"></i>
+                    <span class="hidden dark:block">Hacker Mode</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="about" class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto flex flex-col justify-center min-h-[85vh]">
+        <div class="max-w-3xl">
+            <p class="text-devPrimary dark:text-hackPrimary font-semibold tracking-wide mb-3 flex items-center gap-2">
+                <i class="ph ph-hand-waving block dark:hidden text-xl"></i>
+                <i class="ph ph-lock-key hidden dark:block text-xl"></i>
+                <span class="block dark:hidden">Hello, I'm</span>
+                <span class="hidden dark:block">System Access Granted. I am</span>
+            </p>
+            <h1 class="text-5xl sm:text-7xl font-extrabold mb-6 leading-tight text-gray-900 dark:text-white">
+                Rahul Boudh.
+            </h1>
+            <h2 class="text-3xl sm:text-5xl font-bold mb-6 text-gray-600 dark:text-gray-400">
+                <span class="block dark:hidden">I engineer scalable software.</span>
+                <span class="hidden dark:block">I secure networks & automate logic.</span>
+            </h2>
+            <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl leading-relaxed">
+                I am a Software Developer and Certified Ethical Hacker (CEH) specializing in <strong class="dark:text-white">Full-Stack Development (MERN/Python)</strong>, <strong class="dark:text-white">RPA Automation</strong>, and <strong class="dark:text-white">Cybersecurity</strong>. I build intelligent tools that bridge the gap between operational efficiency and rock-solid security.
+            </p>
+            
+            <div class="flex flex-wrap gap-4">
+                <a href="#projects" class="px-6 py-3 rounded-lg font-semibold bg-devPrimary text-white hover:bg-blue-700 dark:bg-hackPrimary dark:text-black dark:hover:bg-[#00cc33] transition-colors shadow-lg dark:shadow-[0_0_15px_rgba(0,255,65,0.4)]">
+                    View My Arsenal
+                </a>
+                <a href="mailto:rahuldboudh@gmail.com" class="px-6 py-3 rounded-lg font-semibold border-2 border-gray-300 text-gray-700 hover:border-gray-900 hover:text-gray-900 dark:border-hackBorder dark:text-gray-300 dark:hover:border-hackPrimary dark:hover:text-hackPrimary transition-colors flex items-center gap-2">
+                    <i class="ph ph-envelope-simple text-xl"></i> Connect
+                </a>
+            </div>
+
+            <!-- Social Links -->
+            <div class="mt-10 flex gap-6 text-2xl text-gray-500 dark:text-gray-400">
+                <a href="#" class="hover:text-devPrimary dark:hover:text-hackPrimary transition-colors"><i class="ph ph-github-logo"></i></a>
+                <a href="#" class="hover:text-devPrimary dark:hover:text-hackPrimary transition-colors"><i class="ph ph-linkedin-logo"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 bg-white dark:bg-[#0a0a0a] border-y border-gray-100 dark:border-hackBorder transition-colors duration-500">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h3 class="text-3xl font-bold mb-10 flex items-center gap-3 dark:text-white">
+                <i class="ph ph-briefcase text-devPrimary dark:text-hackPrimary text-4xl"></i> 
+                Professional Experience
+            </h3>
+
+            <div class="relative border-l-2 border-gray-200 dark:border-hackBorder ml-4 md:ml-6 pl-8 pb-8">
+                <!-- Timeline Dot -->
+                <div class="absolute w-4 h-4 bg-devPrimary dark:bg-hackPrimary rounded-full -left-[9px] top-1 dark:shadow-[0_0_10px_#00FF41]"></div>
+                
+                <h4 class="text-2xl font-bold dark:text-white">Software Developer</h4>
+                <div class="text-devPrimary dark:text-hackPrimary font-medium text-lg mb-2">Vita Health RCM</div>
+                <div class="text-sm text-gray-500 dark:text-gray-400 mb-4 flex items-center gap-2">
+                    <i class="ph ph-calendar-blank"></i> Feb 2025 - Feb 2026 (Expected)
+                </div>
+                
+                <ul class="list-disc list-outside ml-4 space-y-2 text-gray-600 dark:text-gray-300 max-w-4xl">
+                    <li>Developed custom software applications & internal web tools supporting U.S. Medical Billing processes and RCM workflow automation.</li>
+                    <li>Built RPA bots (Prognocis, Luna) to eliminate repetitive task load and increase operational efficiency.</li>
+                    <li>Managed complete IT operations including end-user support, server & desktop administration, and network troubleshooting (LAN/WAN, VPN) for a secure corporate environment.</li>
+                    <li>Implemented website blocking / monitoring controls to enforce productivity and security compliance.</li>
+                    <li>Gained strong domain expertise in U.S. Healthcare Medical Billing & RCM systems.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <h3 class="text-3xl font-bold mb-8 flex items-center gap-3 dark:text-white">
+            <i class="ph ph-folder-notch-open text-devPrimary dark:text-hackPrimary text-4xl"></i> 
+            Featured Projects
+        </h3>
+
+        <!-- Filters -->
+        <div class="flex flex-wrap gap-3 mb-10" id="filter-buttons">
+            <button class="filter-btn active-filter px-4 py-2 rounded-full text-sm font-medium border border-devPrimary bg-devPrimary text-white dark:border-hackPrimary dark:bg-hackPrimary/20 dark:text-hackPrimary transition-all" data-filter="all">All</button>
+            <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium border border-gray-300 text-gray-600 hover:border-devPrimary hover:text-devPrimary dark:border-hackBorder dark:text-gray-400 dark:hover:border-hackPrimary dark:hover:text-hackPrimary transition-all" data-filter="cybersec">Cybersecurity</button>
+            <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium border border-gray-300 text-gray-600 hover:border-devPrimary hover:text-devPrimary dark:border-hackBorder dark:text-gray-400 dark:hover:border-hackPrimary dark:hover:text-hackPrimary transition-all" data-filter="rpa">RPA & Automation</button>
+            <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium border border-gray-300 text-gray-600 hover:border-devPrimary hover:text-devPrimary dark:border-hackBorder dark:text-gray-400 dark:hover:border-hackPrimary dark:hover:text-hackPrimary transition-all" data-filter="web">Web Dev</button>
+            <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium border border-gray-300 text-gray-600 hover:border-devPrimary hover:text-devPrimary dark:border-hackBorder dark:text-gray-400 dark:hover:border-hackPrimary dark:hover:text-hackPrimary transition-all" data-filter="ai">AI & Vision</button>
+        </div>
+
+        <!-- Project Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="project-grid">
+            
+            <!-- Project 1 (CyberSec) -->
+            <div class="project-card cybersec bg-devCard dark:bg-hackCard border border-gray-200 dark:border-hackBorder rounded-xl p-6 shadow-sm hover:shadow-xl dark:hover:neon-border card-transition flex flex-col h-full">
+                <div class="flex justify-between items-start mb-4">
+                    <i class="ph ph-shield-check text-3xl text-devPrimary dark:text-hackPrimary"></i>
+                    <a href="#" class="text-gray-400 hover:text-gray-900 dark:hover:text-white"><i class="ph ph-github-logo text-2xl"></i></a>
+                </div>
+                <h4 class="text-xl font-bold mb-2 dark:text-white">Custom File Encryption Tool</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mb-4 flex-grow">Ethical security utility for file locking, encryption, and penetration-testing awareness.</p>
+                <div class="flex flex-wrap gap-2 text-xs font-mono">
+                    <span class="px-2 py-1 bg-gray-100 text-gray-700 dark:bg-white/5 dark:text-gray-300 rounded">Python</span>
+                    <span class="px-2 py-1 bg-gray-100 text-gray-700 dark:bg-white/5 dark:text-gray-300 rounded">Cryptography</span>
+                    <span class="px-2 py-1 bg-gray-100 text-gray-700 dark:bg-white/5 dark:text-gray-300 rounded">OS Libs</span>
+                </div>
+            </div>
+
+            <!-- Project 2 (RPA) -->
+            <div class="project-card rpa bg-devCard dark:bg-hackCard border border-gray-200 dark:border-hackBorder rounded-xl p-6 shadow-sm hover:shadow-xl dark:hover:neon-border card-transition flex flex-col h-full">
+                <div class="flex justify-between items-start mb-4">
+                    <i class="ph ph-robot text-3xl text-devPrimary dark:text-hackPrimary"></i>
+                    <a href="#" class="text-gray-400 hover:text-gray-900 dark:hover:text-white"><i class="ph ph-github-logo text-2xl"></i></a>
+                </div>
+                <h4 class="text-xl font-bold mb-2 dark:text-white">Production RPA Bots</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mb-4 flex-grow">Automates insurance claim status checks inside web-based RCM systems (Prognocis & Luna). Works as a human-like operator to avoid bot detection.</p>
+                <div class="flex flex-wrap gap-2 text-xs font-mono">
+                    <span class="px-2 py-1 bg-gray-100 text-gray-700 dark:bg-white/5 dark:text-gray-300 rounded">Selenium UCD</span>
+                    <span class="px-2 py-1 bg-gray-100 text-gray-700 dark:bg-white/5 dark:text-gray-300 rounded">Python</span>
+                    <span class="px-2 py-1 bg-gray-100 text-gray-700 dark:bg-white/5 dark:text-gray-300 rounded">AI Logic</span>
+                </div>
+            </div>
+
+            <!-- Project 3 (Web) -->
+            <div class="project-card web bg-devCard dark:bg-hackCard border border-gray-200 dark:border-hackBorder rounded-xl p-6 shadow-sm hover:shadow-xl dark:hover:neon-border card-transition flex flex-col h-full">
+                <div class="flex justify-between items-start mb-4">
+                    <i class="ph ph-chats-circle text-3xl text-devPrimary dark:text-hackPrimary"></i>
+                    <a href="#" class="text-gray-400 hover:text-gray-900 dark:hover:text-white"><i class="ph ph-github-logo text-2xl"></i></a>
+                </div>
+                <h4 class="text-xl font-bold mb-2 dark:text-white">Teams-like Chat System</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mb-4 flex-grow">Real-time messaging system with users, groups, presence, file sharing & notifications.</p>
+                <div class="flex flex-wrap gap-2 text-xs font-mono">
+                    <span class="px-2 py-1 bg-gray-100 text-gray-700 dark:bg-white/5 dark:text-gray-300 rounded">MERN Stack</span>
+                    <span class="px-2 py-1 bg-gray-100 text-gray-700 dark:bg-white/5 dark:text-gray-300 rounded">Socket.IO</span>
+                </div>
+            </div>
+
+            <!-- Project 4 (CyberSec) -->
+            <div class="project-card cybersec bg-devCard dark:bg-hackCard border border-gray-200 dark:border-hackBorder rounded-xl p-6 shadow-sm hover:shadow-xl dark:hover:neon-border card-transition flex flex-col h-full">
+                <div class="flex justify-between items-start mb-4">
+                    <i class="ph ph-activity text-3xl text-devPrimary dark:text-hackPrimary"></i>
+                    <a href="#" class="text-gray-400 hover:text-gray-900 dark:hover:text-white"><i class="ph ph-github-logo text-2xl"></i></a>
+                </div>
+                <h4 class="text-xl font-bold mb-2 dark:text-white">User Activity Event Logger</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mb-4 flex-grow">Tracks keyboard/mouse inputs in a permission-based corporate environment securely into SQL Server for compliance monitoring.</p>
+                <div class="flex flex-wrap gap-2 text-xs font-mono">
+                    <span class="px-2 py-1 bg-gray-100 text-gray-700 dark:bg-white/5 dark:text-gray-300 rounded">Python</span>
+                    <span class="px-2 py-1 bg-gray-100 text-gray-700 dark:bg-white/5 dark:text-gray-300 rounded">System Hooks</span>
+                    <span class="px-2 py-1 bg-gray-100 text-gray-700 dark:bg-white/5 dark:text-gray-300 rounded">MS SQL</span>
+                </div>
+            </div>
+
+            <!-- Project 5 (Web) -->
+            <div class="project-card web bg-devCard dark:bg-hackCard border border-gray-200 dark:border-hackBorder rounded-xl p-6 shadow-sm hover:shadow-xl dark:hover:neon-border card-transition flex flex-col h-full">
+                <div class="flex justify-between items-start mb-4">
+                    <i class="ph ph-identification-card text-3xl text-devPrimary dark:text-hackPrimary"></i>
+                    <a href="#" class="text-gray-400 hover:text-gray-900 dark:hover:text-white"><i class="ph ph-github-logo text-2xl"></i></a>
+                </div>
+                <h4 class="text-xl font-bold mb-2 dark:text-white">Credentialing Website</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mb-4 flex-grow">A secure, role-based web application for managing provider credentialing, payer enrollment, and document verification.</p>
+                <div class="flex flex-wrap gap-2 text-xs font-mono">
+                    <span class="px-2 py-1 bg-gray-100 text-gray-700 dark:bg-white/5 dark:text-gray-300 rounded">Flask</span>
+                    <span class="px-2 py-1 bg-gray-100 text-gray-700 dark:bg-white/5 dark:text-gray-300 rounded">Python</span>
+                    <span class="px-2 py-1 bg-gray-100 text-gray-700 dark:bg-white/5 dark:text-gray-300 rounded">Gunicorn</span>
+                </div>
+            </div>
+
+             <!-- Project 6 (AI) -->
+             <div class="project-card ai bg-devCard dark:bg-hackCard border border-gray-200 dark:border-hackBorder rounded-xl p-6 shadow-sm hover:shadow-xl dark:hover:neon-border card-transition flex flex-col h-full">
+                <div class="flex justify-between items-start mb-4">
+                    <i class="ph ph-brain text-3xl text-devPrimary dark:text-hackPrimary"></i>
+                    <a href="#" class="text-gray-400 hover:text-gray-900 dark:hover:text-white"><i class="ph ph-github-logo text-2xl"></i></a>
+                </div>
+                <h4 class="text-xl font-bold mb-2 dark:text-white">Virtual Mouse via AI Gesture</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mb-4 flex-grow">Hand-gesture controlled mouse system replacing hardware interaction using computer vision.</p>
+                <div class="flex flex-wrap gap-2 text-xs font-mono">
+                    <span class="px-2 py-1 bg-gray-100 text-gray-700 dark:bg-white/5 dark:text-gray-300 rounded">Python</span>
+                    <span class="px-2 py-1 bg-gray-100 text-gray-700 dark:bg-white/5 dark:text-gray-300 rounded">OpenCV</span>
+                    <span class="px-2 py-1 bg-gray-100 text-gray-700 dark:bg-white/5 dark:text-gray-300 rounded">MediaPipe</span>
+                </div>
+            </div>
+
+            <!-- Project 7 (RPA) -->
+            <div class="project-card rpa bg-devCard dark:bg-hackCard border border-gray-200 dark:border-hackBorder rounded-xl p-6 shadow-sm hover:shadow-xl dark:hover:neon-border card-transition flex flex-col h-full">
+                <div class="flex justify-between items-start mb-4">
+                    <i class="ph ph-file-xls text-3xl text-devPrimary dark:text-hackPrimary"></i>
+                    <a href="#" class="text-gray-400 hover:text-gray-900 dark:hover:text-white"><i class="ph ph-github-logo text-2xl"></i></a>
+                </div>
+                <h4 class="text-xl font-bold mb-2 dark:text-white">EOB to 835 Converter</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mb-4 flex-grow">Healthcare automation tool that converts EOB PDFs into structured ANSI X12 835 ERA files for billing operations.</p>
+                <div class="flex flex-wrap gap-2 text-xs font-mono">
+                    <span class="px-2 py-1 bg-gray-100 text-gray-700 dark:bg-white/5 dark:text-gray-300 rounded">Python</span>
+                    <span class="px-2 py-1 bg-gray-100 text-gray-700 dark:bg-white/5 dark:text-gray-300 rounded">PDF Parsing</span>
+                    <span class="px-2 py-1 bg-gray-100 text-gray-700 dark:bg-white/5 dark:text-gray-300 rounded">Regex</span>
+                </div>
+            </div>
+
+             <!-- Project 8 (CyberSec) -->
+             <div class="project-card cybersec bg-devCard dark:bg-hackCard border border-gray-200 dark:border-hackBorder rounded-xl p-6 shadow-sm hover:shadow-xl dark:hover:neon-border card-transition flex flex-col h-full">
+                <div class="flex justify-between items-start mb-4">
+                    <i class="ph ph-wifi-high text-3xl text-devPrimary dark:text-hackPrimary"></i>
+                    <a href="#" class="text-gray-400 hover:text-gray-900 dark:hover:text-white"><i class="ph ph-github-logo text-2xl"></i></a>
+                </div>
+                <h4 class="text-xl font-bold mb-2 dark:text-white">Network Health & Security</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mb-4 flex-grow">Monitors device status, bandwidth usage & unauthorized access attempts using system hooks.</p>
+                <div class="flex flex-wrap gap-2 text-xs font-mono">
+                    <span class="px-2 py-1 bg-gray-100 text-gray-700 dark:bg-white/5 dark:text-gray-300 rounded">Python</span>
+                    <span class="px-2 py-1 bg-gray-100 text-gray-700 dark:bg-white/5 dark:text-gray-300 rounded">Socket Prog.</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Skills & Certifications -->
+    <section id="skills" class="py-20 bg-white dark:bg-[#0a0a0a] border-y border-gray-100 dark:border-hackBorder transition-colors duration-500">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-12">
+            
+            <!-- Skills -->
+            <div>
+                <h3 class="text-3xl font-bold mb-8 flex items-center gap-3 dark:text-white">
+                    <i class="ph ph-code text-devPrimary dark:text-hackPrimary text-4xl"></i> 
+                    Technical Specs
+                </h3>
+                <div class="space-y-6">
+                    <div>
+                        <h5 class="text-sm uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-3 font-semibold">Development</h5>
+                        <div class="flex flex-wrap gap-2 font-mono text-sm">
+                            <span class="px-3 py-1 bg-gray-100 dark:bg-hackBorder dark:text-gray-300 rounded-md border border-transparent dark:hover:border-hackPrimary transition-colors">Python</span>
+                            <span class="px-3 py-1 bg-gray-100 dark:bg-hackBorder dark:text-gray-300 rounded-md border border-transparent dark:hover:border-hackPrimary transition-colors">MERN Stack</span>
+                            <span class="px-3 py-1 bg-gray-100 dark:bg-hackBorder dark:text-gray-300 rounded-md border border-transparent dark:hover:border-hackPrimary transition-colors">Flask</span>
+                            <span class="px-3 py-1 bg-gray-100 dark:bg-hackBorder dark:text-gray-300 rounded-md border border-transparent dark:hover:border-hackPrimary transition-colors">SQL Server</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h5 class="text-sm uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-3 font-semibold">RPA & Automation</h5>
+                        <div class="flex flex-wrap gap-2 font-mono text-sm">
+                            <span class="px-3 py-1 bg-gray-100 dark:bg-hackBorder dark:text-gray-300 rounded-md border border-transparent dark:hover:border-hackPrimary transition-colors">Selenium</span>
+                            <span class="px-3 py-1 bg-gray-100 dark:bg-hackBorder dark:text-gray-300 rounded-md border border-transparent dark:hover:border-hackPrimary transition-colors">Undetected Chrome Driver</span>
+                            <span class="px-3 py-1 bg-gray-100 dark:bg-hackBorder dark:text-gray-300 rounded-md border border-transparent dark:hover:border-hackPrimary transition-colors">PyQt6</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h5 class="text-sm uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-3 font-semibold">Cybersecurity & IT</h5>
+                        <div class="flex flex-wrap gap-2 font-mono text-sm">
+                            <span class="px-3 py-1 bg-gray-100 dark:bg-hackBorder dark:text-gray-300 rounded-md border border-transparent dark:hover:border-hackPrimary transition-colors">CEH Concepts</span>
+                            <span class="px-3 py-1 bg-gray-100 dark:bg-hackBorder dark:text-gray-300 rounded-md border border-transparent dark:hover:border-hackPrimary transition-colors">LAN/WAN</span>
+                            <span class="px-3 py-1 bg-gray-100 dark:bg-hackBorder dark:text-gray-300 rounded-md border border-transparent dark:hover:border-hackPrimary transition-colors">Windows Admin</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certifications -->
+            <div>
+                <h3 class="text-3xl font-bold mb-8 flex items-center gap-3 dark:text-white">
+                    <i class="ph ph-certificate text-devPrimary dark:text-hackPrimary text-4xl"></i> 
+                    Certifications
+                </h3>
+                <div class="space-y-4">
+                    <div class="p-4 border border-gray-200 dark:border-hackBorder rounded-lg flex items-center gap-4 bg-devBg dark:bg-hackCard hover:border-devPrimary dark:hover:border-hackPrimary transition-colors">
+                        <i class="ph ph-medal text-3xl text-devPrimary dark:text-hackPrimary"></i>
+                        <div>
+                            <h4 class="font-bold dark:text-white">Certified Ethical Hacker (CEH)</h4>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">EC-Council | 2024</p>
+                        </div>
+                    </div>
+                    <div class="p-4 border border-gray-200 dark:border-hackBorder rounded-lg flex items-center gap-4 bg-devBg dark:bg-hackCard hover:border-devPrimary dark:hover:border-hackPrimary transition-colors">
+                        <i class="ph ph-shield text-3xl text-blue-500 dark:text-blue-400"></i>
+                        <div>
+                            <h4 class="font-bold dark:text-white">Google Cybersecurity Professional</h4>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">Coursera | 2024</p>
+                        </div>
+                    </div>
+                    <div class="p-4 border border-gray-200 dark:border-hackBorder rounded-lg flex items-center gap-4 bg-devBg dark:bg-hackCard hover:border-devPrimary dark:hover:border-hackPrimary transition-colors">
+                        <i class="ph ph-file-code text-3xl text-yellow-500 dark:text-yellow-400"></i>
+                        <div>
+                            <h4 class="font-bold dark:text-white">Python Programming Certification</h4>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">DevTown | 2023</p>
+                        </div>
+                    </div>
+                    <div class="mt-8">
+                         <h5 class="text-sm uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-3 font-semibold">Education</h5>
+                         <p class="font-bold dark:text-white">B.Sc Information Technology</p>
+                         <p class="text-sm text-gray-500 dark:text-gray-400">Mumbai University | CGPA: 8.9 | 2023</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 text-center text-gray-500 dark:text-gray-400 text-sm">
+        <p>© 2024 Rahul Boudh. Designed with code and logic.</p>
+    </footer>
+
+    <!-- Interactive Logic (Theme & Filters) -->
+    <script>
+        // --- 1. THEME TOGGLE LOGIC ---
+        const themeToggleBtn = document.getElementById('themeToggle');
+        const htmlElement = document.documentElement;
+
+        // Check local storage for theme preference
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            htmlElement.classList.add('dark');
+        } else {
+            htmlElement.classList.remove('dark');
+        }
+
+        // Toggle theme on click
+        themeToggleBtn.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark');
+            
+            // Save preference to local storage
+            if (htmlElement.classList.contains('dark')) {
+                localStorage.theme = 'dark';
+            } else {
+                localStorage.theme = 'light';
+            }
+        });
+
+        // --- 2. PROJECT FILTERING LOGIC ---
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active classes from all buttons
+                filterBtns.forEach(b => {
+                    b.classList.remove('bg-devPrimary', 'text-white', 'border-devPrimary', 'dark:bg-hackPrimary/20', 'dark:text-hackPrimary', 'dark:border-hackPrimary');
+                    b.classList.add('border-gray-300', 'text-gray-600', 'dark:border-hackBorder', 'dark:text-gray-400');
+                });
+
+                // Add active classes to clicked button
+                btn.classList.remove('border-gray-300', 'text-gray-600', 'dark:border-hackBorder', 'dark:text-gray-400');
+                btn.classList.add('bg-devPrimary', 'text-white', 'border-devPrimary', 'dark:bg-hackPrimary/20', 'dark:text-hackPrimary', 'dark:border-hackPrimary');
+
+                const filterValue = btn.getAttribute('data-filter');
+
+                // Filter cards
+                projectCards.forEach(card => {
+                    if (filterValue === 'all' || card.classList.contains(filterValue)) {
+                        card.style.display = 'flex'; // Show
+                        // Slight timeout for animation effect
+                        setTimeout(() => { card.style.opacity = '1'; card.style.transform = 'scale(1)'; }, 50);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'scale(0.95)';
+                        setTimeout(() => { card.style.display = 'none'; }, 300); // Hide after animation
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
